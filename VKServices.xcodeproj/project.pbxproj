@@ -18,6 +18,7 @@
 		2CD5A207287F1D5E00FA5A2D /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5A206287F1D5E00FA5A2D /* Services.swift */; };
 		2CD5A20A287F1F7D00FA5A2D /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5A209287F1F7D00FA5A2D /* ServiceResponse.swift */; };
 		2CD5A20C287F1F9B00FA5A2D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5A20B287F1F9B00FA5A2D /* Service.swift */; };
+		2CD5A20E287F33DC00FA5A2D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5A20D287F33DC00FA5A2D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		2CD5A206287F1D5E00FA5A2D /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		2CD5A209287F1F7D00FA5A2D /* ServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResponse.swift; sourceTree = "<group>"; };
 		2CD5A20B287F1F9B00FA5A2D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2CD5A20D287F33DC00FA5A2D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				2CD5A1E9287F012600FA5A2D /* SceneDelegate.swift */,
 				2CD5A1F0287F012800FA5A2D /* Assets.xcassets */,
 				2CD5A1F2287F012800FA5A2D /* LaunchScreen.storyboard */,
+				2CD5A20D287F33DC00FA5A2D /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				2CD5A205287F1C9400FA5A2D /* APICaller.swift in Sources */,
 				2CD5A202287F124700FA5A2D /* Rechability.swift in Sources */,
 				2CD5A207287F1D5E00FA5A2D /* Services.swift in Sources */,
+				2CD5A20E287F33DC00FA5A2D /* Extensions.swift in Sources */,
 				2CD5A20C287F1F9B00FA5A2D /* Service.swift in Sources */,
 				2CD5A1FF287F10FF00FA5A2D /* ServicesTableViewCell.swift in Sources */,
 				2CD5A1E8287F012600FA5A2D /* AppDelegate.swift in Sources */,

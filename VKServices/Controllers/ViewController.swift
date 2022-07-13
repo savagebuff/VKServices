@@ -20,10 +20,14 @@ class ViewController: UIViewController {
     private var services = [Service]()
     
     private let tableView: UITableView = {
-        let tabletView = UITableView()
-        tabletView.backgroundColor = .clear
-        tabletView.translatesAutoresizingMaskIntoConstraints = false
-        return tabletView
+        let tableView = UITableView()
+        tableView.backgroundColor = .clear
+        tableView.register(
+            ServicesTableViewCell.self,
+            forCellReuseIdentifier: ServicesTableViewCell.identifier
+        )
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
     
     // MARK: - Life Cycle
@@ -31,19 +35,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         setupUI()
         setupServices()
     }
     
+    
     // MARK: - Private Methods
+    
     private func setupUI() {
         title = "Сервисы VK"
         navigationItem.largeTitleDisplayMode = .always
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     private func setupServices() {
@@ -53,7 +67,7 @@ class ViewController: UIViewController {
                 switch results {
                 case .success(let result):
                     self?.services = result.body.services
-                    // reloadData
+                    self?.tableView.reloadData()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -73,3 +87,35 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: -  UITableViewDelegate
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension ViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return services.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: ServicesTableViewCell = tableView.dequeueReusableCell(
+            withIdentifier: ServicesTableViewCell.identifier,
+            for: indexPath
+        ) as? ServicesTableViewCell else { return UITableViewCell() }
+        cell.setupCell(with: services[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 84
+    }
+}
