@@ -9,6 +9,7 @@ import Foundation
 
 /// Класс, который отвечает за ход в сеть
 final class APICaller {
+    
     static let shared = APICaller()
     
     private init() {}

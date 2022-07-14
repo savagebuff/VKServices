@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class ViewController: UIViewController {
     
@@ -95,8 +94,14 @@ extension ViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let url = URL(string: services[indexPath.row].link) else { return }
         
-        let vc = SFSafariViewController(url: url)
-        present(vc, animated: true, completion: nil)
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            let alert = UIAlertController(title: "Ошибка", message: "Не удается открыть вебсайт или приложение", preferredStyle: .alert)
+            let action = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
