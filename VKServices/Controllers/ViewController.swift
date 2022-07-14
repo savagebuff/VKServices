@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
     
@@ -91,7 +92,11 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let url = URL(string: services[indexPath.row].link) else { return }
         
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true, completion: nil)
     }
 }
 
@@ -116,6 +121,6 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 84
+        return 82
     }
 }

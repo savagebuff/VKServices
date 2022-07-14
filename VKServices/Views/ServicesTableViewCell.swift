@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Ячейки представления сервисов
 final class ServicesTableViewCell: UITableViewCell {
     
     // MARK: - Private Properties
@@ -39,7 +40,7 @@ final class ServicesTableViewCell: UITableViewCell {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 12)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.2
         label.textAlignment = .left
@@ -92,8 +93,8 @@ final class ServicesTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             iconView.centerYAnchor.constraint(equalTo: centerYAnchor),
             iconView.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
-            iconView.widthAnchor.constraint(equalToConstant: 64),
-            iconView.heightAnchor.constraint(equalToConstant: 64),
+            iconView.widthAnchor.constraint(equalToConstant: 62),
+            iconView.heightAnchor.constraint(equalToConstant: 62),
             
             rightArrowImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             rightArrowImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -18),

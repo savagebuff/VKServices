@@ -14,16 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        if #available(iOS 15, *) {
-//            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
-//        }
-//        
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        window.rootViewController = UINavigationController(rootViewController: ViewController())
-//        window.overrideUserInterfaceStyle = .dark
-//        window.makeKeyAndVisible()
-//        self.window = window
-        
         return true
     }
 
